@@ -7,9 +7,14 @@ public class Sorting {
     public static void heapSort(int[] arr) {
         int n = arr.length;
 
+        // формируем дерево и наибольший элемент передвигаем в самый верх
         for (int i = n / 2 - 1; i >= 0; i--)
             Methods.groupingAndDistribution(arr, i);
 
+        // проходим весь массив в обратном порядке элемент с индексом 0
+        // (наибольший) передвигаем в конец массива и
+        // уменьшаем количество проверяемых элементов на 1
+        // (последние элементы отсортированы)
         for (int i = n - 1; i >= 0; i--) {
             Methods.swap(arr, i, 0);
             Methods.groupingAndDistribution(arr, 0);
